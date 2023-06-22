@@ -16,7 +16,13 @@ sh 'node ./backend/test.js'
 }
 }
 stage('Frontend Tests') {
-when { expression { params.RUN_FRONTEND_TESTS } }
+when { 
+expression { params.RUN_FRONTEND_TESTS }
+beforeInput true
+}
+input {
+message 'Deploy the application?'
+}
 steps {
 sh 'node ./frontend/test.js'
 }
