@@ -4,6 +4,7 @@ node {
 label 'nodejs'
 }
 }
+stages{
 stage('Run Tests') {
 parallel {
 stage('Backend Tests') {
@@ -14,6 +15,7 @@ sh 'node ./backend/test.js'
 stage('Frontend Tests') {
 steps {
 sh 'node ./frontend/test.js'
+}
 }
 }
 }
